@@ -68,18 +68,3 @@ def delete_user(id: int):
     all_users.remove(user)
     return all_users
 
-"""
-@router.post('/add-user')
-async def add_user(obj: Union[User, None] = None):
-    all_users["users"].append(obj)
-    return all_users["users"]
-
-@router.post('/add-admin')
-async def add_admin(obj: Union[Admin, None] = None):
-    all_users["admins"].append(obj)
-    return all_users["admins"]
-
-
-@router.get(f'/user/{id}')
-async def print_users(obj: Union[User, None] = None):
-"""
