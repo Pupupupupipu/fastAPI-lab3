@@ -1,5 +1,5 @@
 from typing import Union
-from models.User import User
+from models.UserDB import UserDB
 
-class Admin(User):
+class Admin(UserDB):
     role: Union[str, None] = "editor"

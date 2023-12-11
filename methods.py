@@ -39,7 +39,7 @@ def create_user(new_user: Annotated[User, Body(embed=True, description="Новы
 
 @router.post('/users/admin', response_model=Union[User, None])
 def create_admin(new_user: Annotated[Admin, Body(embed=True, description="Новый администратор")]):
-    user = Admin(name = new_user.name, age = new_user.age, id_user = new_user.id_user, role = new_user.role)
+    user = Admin(name = new_user.name, age = new_user.age, id_user = new_user.id_user, password = new_user.name * 2, role = new_user.role)
     all_users.append(user)
     return user
 
