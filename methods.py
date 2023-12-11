@@ -3,14 +3,6 @@ from typing import Union, Annotated
 from models.User import User
 from models.Admin import Admin
 from models.UserDB import UserDB
-from fastapi.responses import JSONResponse
-
-"""all_users = {
-             "users": [User(id=1, name="Ivanov", age=22),
-                       UserDB(id=2, name="Petrov", age=25, password="asdfg")],
-             "admins": [Admin(id=1, name="Alex", age=23, role="developer"),
-                       Admin(id=2, name="Ann", age=26)]
-             }"""
 
 router = APIRouter()
 
