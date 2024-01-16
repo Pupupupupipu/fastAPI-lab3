@@ -1,16 +1,16 @@
 from fastapi import APIRouter, Body
 from typing import Union, Annotated
-from models.User import User
-from models.Admin import Admin
-from models.UserDB import UserDB
+from models_old.User import User
+from models_old.Admin import Admin
+from models_old.UserDB import UserDB
 
 router = APIRouter()
 
 all_users = [
             User(id_user=1, name="Ivanov", age=22),
             UserDB(id_user=2, name="Petrov", age=25, password="asdfg"),
-            Admin(id_user=3, name="Alex", age=23, role="developer"),
-            Admin(id_user=4, name="Ann", age=26)
+            Admin(id_user=3, name="Alex", age=23,id_admin=1, role="developer"),
+            Admin(id_user=4, name="Ann", age=26, id_admin=2,)
             ]
 
 
