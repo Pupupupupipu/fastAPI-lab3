@@ -4,6 +4,7 @@ import os
 class Settings:
     app_name: str = "New API"
     POSTGRES_DATABASE_URLA: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/db"
+    POSTGRES_DATABASE_URLS: str = "postgresql://postgres:postgres@localhost:5432/db"
     POSTGRES_PORT: int
     POSTGRES_PASSWORD: str
     POSTGRES_USER: str
@@ -20,6 +21,13 @@ settings.POSTGRES_DB = os.environ.get('POSTGRES_DB')
 settings.POSTGRES_HOST = os.environ.get('POSTGRES_HOST')
 
 settings.POSTGRES_DATABASE_URLA = f"postgresql+asyncpg:" \
+                                f"//{settings.POSTGRES_USER}:" \
+                                f"{settings.POSTGRES_PASSWORD}" \
+                                f"@{settings.POSTGRES_HOST}:" \
+                                f"{settings.POSTGRES_PORT}" \
+                                f"/{settings.POSTGRES_DB}"
+
+settings.POSTGRES_DATABASE_URLS = f"postgresql:" \
                                 f"//{settings.POSTGRES_USER}:" \
                                 f"{settings.POSTGRES_PASSWORD}" \
                                 f"@{settings.POSTGRES_HOST}:" \

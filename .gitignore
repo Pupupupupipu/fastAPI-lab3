@@ -1,2 +1,4 @@
 .env
-/models_old/
+log.txt
+methods.py
+models_old

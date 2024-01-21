@@ -1,19 +1,26 @@
-from config import settings
-from sqlalchemy import text
-import asyncio
 from sqlalchemy.ext.asyncio import create_async_engine
 
-ur_a = settings.POSTGRES_DATABASE_URLA
+from config import settings
+from sqlalchemy import text, create_engine
+import asyncio
+
+from models.country import Base
+
+ur_a = settings.POSTGRES_DATABASE_URLS
 
 print(ur_a)
 
-engine = create_async_engine(ur_a, connect_args={"check_same_thread": True}, echo=True)
+engine = create_engine(ur_a, echo=True)
 
+def init_db():
+    #Base.metadata.drop_all(bind=engine)
+    Base.metadata.create_all(bind=engine)
 
-async def f():
-    async with engine.begin() as conn:
-        answer = await conn.execute(text("select version()"))
+def f():
+    with engine.begin() as conn:
+        answer = conn.execute(text("select * from country;"))
         print(f"answer = {answer.all()}")
 
 
-asyncio.run(f())
+f()
+#asyncio.get_event_loop().run_until_complete(f())
