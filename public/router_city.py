@@ -1,18 +1,16 @@
 from fastapi import APIRouter, Depends, Body, HTTPException, status
 from typing import Union, Annotated
 
-from sqlalchemy import create_engine
+
 from sqlalchemy.orm import sessionmaker, Session
 from fastapi.responses import JSONResponse
 
-from config import settings
 from db import engine
 
 
 from models.city import City
 from models.models_answer.city import City_answer
 
-#engine = create_engine(settings.POSTGRES_DATABASE_URLA, connect_args={"check_same_thread": False}, echo=True)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
