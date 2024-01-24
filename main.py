@@ -17,12 +17,12 @@ app.include_router(region_router)
 
 
 @app.on_event("startup")
-def on_startup():
+async def on_startup():
     open("log.txt", mode="a").write(f'{datetime.utcnow()}: Begin\n')
-    init_db()
+    await init_db()
 
 @app.on_event("shutdown")
-def shutdown():
+async def shutdown():
     open("log.txt", mode="a").write(f'{datetime.utcnow()}: End\n')
 
 @app.get('/')

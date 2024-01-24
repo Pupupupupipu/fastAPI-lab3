@@ -1,5 +1,6 @@
 from typing import Union, Annotated
 from pydantic import BaseModel, Field
+from sqlalchemy.orm import Mapped, mapped_column
 
 
 class Country_answer(BaseModel):
@@ -12,5 +13,6 @@ class Country_answer(BaseModel):
     percentage_of_urban_population: Union[int, None] = None
     official_languages: Union[str, None] = None
     head_of_state: Union[str, None] = None
+
 
 

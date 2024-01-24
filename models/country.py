@@ -1,11 +1,12 @@
 from sqlalchemy import Column, Integer, String, Identity
-from sqlalchemy.orm import declarative_base
+from sqlalchemy.orm import declarative_base, Mapped
 
 Base = declarative_base()
 
+
 class Country(Base):
     __tablename__ = "country"
-    id_country = Column(Integer, Identity(start=4), primary_key=True)
+    id_country: Mapped[int] = Column(Integer, Identity(start=4), primary_key=True)
     name = Column(String, index=True, nullable=False)
     square = Column(Integer, nullable=False)
     population = Column(Integer, nullable=False)
